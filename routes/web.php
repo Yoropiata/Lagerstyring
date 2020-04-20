@@ -22,7 +22,7 @@ Route::get('login', "AuthController@LoginView");
 Route::post('/login','AuthController@login');
 
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/inventar', 'WebController@InventoryView');
 
     Route::get('/inventar/ret', 'WebController@InventoryEditView');
