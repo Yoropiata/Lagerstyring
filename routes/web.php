@@ -21,9 +21,11 @@ Route::get('login', "AuthController@LoginView");
 
 Route::post('/login','AuthController@login');
 
-Route::get('/inventar', 'WebController@InventoryView');
 
-Route::get('/inventar/ret', 'WebController@InventoryEditView');
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('/inventar', 'WebController@InventoryView');
 
-Route::get('/admin', 'WebController@InventoryEditView');
+    Route::get('/inventar/ret', 'WebController@InventoryEditView');
 
+    Route::get('/admin', 'WebController@InventoryEditView');
+});
