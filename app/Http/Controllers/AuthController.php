@@ -26,7 +26,7 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) {         
             return redirect('/inventar'); 
         } else {
-            return redirect('/login');
+            return redirect('/login')->with('error', 'Brugeren eksisterer ikke eller adgangskoden var forkert.');
         }
     }
 }
