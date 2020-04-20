@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', "AuthController@LoginView");
+
+Route::get('/inventar', 'WebController@InventoryView');
+
+Route::get('/inventar/ret', 'WebController@InventoryEditView');
+
+Route::get('/admin', 'WebController@InventoryEditView');
+
