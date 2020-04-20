@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login', "AuthController@LoginView");
 
+Route::post('/login','AuthController@login');
+
 Route::get('/inventar', 'WebController@InventoryView');
 
 Route::get('/inventar/ret', 'WebController@InventoryEditView');
