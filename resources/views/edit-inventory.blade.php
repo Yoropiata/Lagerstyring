@@ -12,8 +12,34 @@
         </style>
     </head>
     <body>
-        <h1 class="btn btn-primary">{{$title}}</h1>
-
+        <div class="col-4 d-flex justify-content-center">
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Navn</th>
+                        <th>Mængde</th>
+                        <th>hurtig ret</th>
+                        <th>ret</th>
+                        <th>slet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($products as $product)
+                    <tr>
+                        <td>$product->id</td>
+                        <td>$product->name</td>
+                        <td>$product->count</td>
+                    </tr>
+                @endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
         <script src="/js/app.js"></script>
     </body>
     <script>
