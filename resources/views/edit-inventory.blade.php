@@ -12,7 +12,7 @@
         </style>
     </head>
     <body>
-        <div class="col-4 d-flex justify-content-center">
+        <!-- <div class="col-4 d-flex justify-content-center"> -->
             <table class="table table-light">
                 <thead class="thead-light">
                     <tr>
@@ -27,9 +27,12 @@
                 <tbody>
                 @foreach ($products as $product)
                     <tr>
-                        <td>$product->id</td>
-                        <td>$product->name</td>
-                        <td>$product->count</td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->count }}</td>
+                        <td>+ & - knap</td>
+                        <td><div class="btn btn-primary">Ret</div></td>
+                        <td><div class="btn btn-danger">Delete</div></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -39,7 +42,7 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        <!-- </div> -->
         <script src="/js/app.js"></script>
     </body>
     <script>
