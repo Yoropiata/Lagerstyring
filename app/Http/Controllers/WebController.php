@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 class WebController extends Controller
 {
     public function InventoryView(Request $request) {
-        $title = "Inventar side!";
-        return view('overview', ["title"=>$title]);
+        $products = Product::all();
+        return view('edit-inventory', ["products"=>$products]);
     } 
     
     public function InventoryEditView(Request $request) {
