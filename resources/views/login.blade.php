@@ -45,7 +45,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input  type="password" class="form-control" name="password" placeholder="Password">
                             </div>
-                            <!--<span class="help-block">Password error</span>-->
+                            <div class="help-block">{{ session('error') }}</div>
                             <label class="checkbox">
                                 <input type="checkbox" name="checkbox" value="1">Remember Me
                             </label>
