@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class WebController extends Controller
 {
     public function InventoryView(Request $request) {
         $products = Product::all();
-        return view('edit-inventory', ["products"=>$products]);
+        return view('overview', ["products"=>$products]);
     } 
     
     public function InventoryEditView(Request $request) {
