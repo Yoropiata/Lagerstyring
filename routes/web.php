@@ -29,3 +29,5 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::get('/admin', 'WebController@InventoryEditView');
 });
+
+Route::get('/logout', 'LogoutController@logout');
