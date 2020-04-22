@@ -12,6 +12,9 @@
         </style>
     </head>
     <body>
+
+    <a class="btn btn-primary" href="/bruger/opret">Opret Bruger</a>
+    <a class="btn btn-primary" href="/brugere">Brugere</a>
         <h1 class="btn btn-primary">{{$title}}</h1>
 
         <script src="/js/app.js"></script>

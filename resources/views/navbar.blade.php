@@ -13,6 +13,9 @@
         <a class="nav-link" href="/inventar/ret">Ret Lager</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/brugere">Brugere</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/Admin">Admin</a>
       </li>
       <li class="nav-item">
