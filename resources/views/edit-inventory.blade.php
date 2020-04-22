@@ -12,40 +12,42 @@
         </style>
     </head>
     <body>
-        <!-- <div class="col-4 d-flex justify-content-center"> -->
-            <table class="table table-light">
-                <thead class="thead-light">
-                    <tr>
-                        <th>#</th>
-                        <th>Navn</th>
-                        <th>Mængde</th>
-                        <th>hurtig ret</th>
-                        <th>ret</th>
-                        <th>slet</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach ($products as $product)
-                    <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td>{{ $product->count }}</td>
-                        <td>+ & - knap</td>
-                        <td><div class="btn btn-primary">Ret</div></td>
-                        <td><div class="btn btn-danger">Delete</div></td>
-                    </tr>
-                @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                    </tr>
-                </tfoot>
-            </table>
-        <!-- </div> -->
+        <div class="d-flex justify-content-center bg-light">
+            <div class="mt-5">
+                <table class="table table-light">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Navn</th>
+                            <th>Mængde</th>
+                            <th>hurtig ret</th>
+                            <th>ret</th>
+                            <th>slet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($products as $product)
+                        <tr>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->count }}</td>
+                            <td>+ & - knap</td>
+                            <td><button class="btn btn-primary">Ret</div></td>
+                            <td><div class="btn btn-danger">Slet</div></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
         <script src="/js/app.js"></script>
     </body>
     <script>
 
-    </script>
+</script>
 </html>
