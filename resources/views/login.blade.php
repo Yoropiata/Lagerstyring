@@ -32,7 +32,7 @@
             <div class="omb_login">
                     <div class="row omb_row-sm-offset-3">
                     <div class="col-xs-12 col-sm-6">	
-                    <h1>{{$title}}</h1>
+                    <h1>Login</h1>
                         <form class="omb_loginForm" action="/login" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="input-group">

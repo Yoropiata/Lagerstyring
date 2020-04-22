@@ -139,7 +139,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-5">
-                            <h2><b>{{$title}}</b></h2>
+                            <h2><b>Brugere</b></h2>
                         </div>
                         <div class="col-sm-7">
                             <a data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Opret bruger</span></a>					
