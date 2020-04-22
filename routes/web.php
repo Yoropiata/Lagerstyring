@@ -17,10 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('login', "AuthController@LoginView");
-
+Route::get('login', "WebController@LoginView");
 Route::post('/login','AuthController@login');
-
 
 Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/inventar', 'WebController@InventoryView');
@@ -31,4 +29,12 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::delete('/inventar/ret/{id}', 'ProductController@delete');
 
     Route::get('/admin', 'WebController@InventoryEditView');
+    
+    Route::get('/brugere', 'WebController@UsersView');
+    Route::get('/bruger/ret', 'WebController@UsersEditView');
+    Route::post('/bruger/opret','UserController@register');
+    Route::post('/bruger/ret','UserController@edit');
+    Route::get('/bruger/slet','UserController@delete');
 });
+
+Route::get('/logout', 'LogoutController@logout');

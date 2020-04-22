@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function loginView(Request $request) {
-        $title = "Login";
-        return view('login', ["title"=>$title]);
-    }
-
     public function login(Request $req)
     {
         //request('checkbox') //remember me
