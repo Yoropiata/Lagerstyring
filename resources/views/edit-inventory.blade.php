@@ -11,9 +11,10 @@
             
         </style>
     </head>
-    <body>
-        <div class="d-flex justify-content-center bg-light">
-            <div class="mt-5">
+    <body class="bg-light">
+    @include('navbar')
+        <div class="d-flex w-100 justify-content-center bg-light">
+            <div class="m-5 container">
                 <button class="btn btn-primary mb-1" data-toggle="modal" data-target="#product-add">
                     Tilføj
                 </button>
@@ -24,9 +25,7 @@
                             <th>#</th>
                             <th>Navn</th>
                             <th>Mængde</th>
-                            <th>hurtig ret</th>
-                            <th>ret</th>
-                            <th>slet</th>
+                            <th>Handling</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,10 +33,24 @@
                         <tr data-id="{{ $product->id }}">
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->count }}</td>
-                            <td>+ & - knap</td>
-                            <td><button onclick="edit(this);" class="btn btn-primary" data-toggle="modal" data-target="#product-edit">Ret</div></td>
-                            <td><button onclick="del(this);" class="btn btn-danger">Slet</button></td>
+                            <!-- <td>{{ $product->count }}</td> -->
+                            <td>
+                                <form method="post" action="/inventar/ret">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                    <input type="hidden" name="name" value="{{ $product->name }}">
+                                    <input class="product-edit-quick form-control" type="number" name="amount" data-count="{{ $product->count }}" value="{{ $product->count }}">                                
+                                </form>
+                            </td>
+                            <td>
+                                <button onclick="edit(this);" class="btn btn-primary" data-toggle="modal" data-target="#product-edit">
+                                    Ret
+                                </button>
+                                <button onclick="del(this);" class="btn btn-danger">
+                                    Slet
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -130,5 +143,13 @@
             form.submit();
         }
     }
+    $(document).ready(() => {
+        $(".product-edit-quick").focusout(() => {
+            var el = $(event.target);
+            if(el.data("count") != el.val()) {
+                el.parent().submit();
+            }
+        });
+    });
     </script>
 </html>
