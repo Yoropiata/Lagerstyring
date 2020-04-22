@@ -6,7 +6,7 @@
         <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
         <link rel="stylesheet" href="/css/app.css">
 
-        <title>{{$title}}</title>
+        <title>Ret brugere</title>
         <style>
 
             @media (min-width: 768px) {
@@ -33,7 +33,7 @@
             <div class="omb_login">
                     <div class="row omb_row-sm-offset-3">
                     <div class="col-xs-12 col-sm-6">	
-                    <h1>{{$title}}</h1>
+                    <h1>Ret brugere</h1>
                         <form class="omb_loginForm" action="/bruger/ret" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="id" value="{{ $user->id }}">

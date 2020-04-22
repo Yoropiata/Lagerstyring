@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
+
 use App\Product;
 use App\User;
 
@@ -26,14 +28,12 @@ class WebController extends Controller
     }
 
     public function UsersView(Request $request) {
-        $title = "Brugere";
         $users = User::all();
-        return view('users', ["title"=>$title, "users"=>$users]);
+        return view('users', ["users"=>$users]);
     }
 
     public function UsersEditView(Request $request) {
-        $title = "Ret Bruger";
         $user = User::find(request('id'));
-        return view('edit-user', ["title"=>$title, "user"=>$user]);
+        return view('edit-user', ["user"=>$user]);
     }
 }
