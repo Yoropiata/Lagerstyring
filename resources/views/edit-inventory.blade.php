@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
         <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <title>Ret i lager</title>
         <style>
@@ -44,12 +45,12 @@
                                 </form>
                             </td>
                             <td>
-                                <button onclick="edit(this);" class="btn btn-primary" data-toggle="modal" data-target="#product-edit">
-                                    Ret
-                                </button>
-                                <button onclick="del(this);" class="btn btn-danger">
-                                    Slet
-                                </button>
+                                <span onclick="edit(this);" class="text-primary" data-toggle="modal" data-target="#product-edit">
+                                    <i class="material-icons">&#xE8B8;</i>
+                                </span>
+                                <span onclick="del(this);" class="text-danger">
+                                    <i class="material-icons">&#xE5C9;</i>
+                                </span>
                             </td>
                         </tr>
                     @endforeach
