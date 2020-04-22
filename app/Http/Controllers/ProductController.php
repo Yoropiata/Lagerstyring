@@ -10,11 +10,15 @@ class ProductController extends Controller
     public function create(Request $request) {
         $name = request("name");
         $amount = request("amount");
-        Product::create([
-            "name" => $name,
-            "count" => $amount,
-            "department_id" => 1,
-        ]);
+        try {
+            Product::create([
+                "name" => $name,
+                "count" => $amount,
+                "department_id" => 1,
+            ]);
+        } catch (\Illuminate\Database\QueryException $exception) {
+            return redirect("inventar/ret")->with('error', 'Produktet eksisterer allerede');;
+        }
         return redirect("/inventar/ret");
     }
     public function update(Request $request) {

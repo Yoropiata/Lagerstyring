@@ -17,6 +17,7 @@
                 <button class="btn btn-primary mb-1" data-toggle="modal" data-target="#product-add">
                     Tilføj
                 </button>
+                <span class="help-block text-danger">{{ session('error') }}</span>
                 <table class="table table-light table-striped">
                     <thead class="thead-light">
                         <tr>
@@ -47,6 +48,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form method="post" action="/inventar/ret">
+                    @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="product-add-title">Tilføj produkt</h5>
                             <button class="close" data-dismiss="modal" aria-label="Close">
@@ -60,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="add-product-amount">Mængde</label>
-                                <input id="add-product-amount" class="form-control" type="number" name="amount" min="0" placeholder="0">
+                                <input id="add-product-amount" class="form-control" type="number" name="amount" min="0" value="0">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -74,7 +76,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form method="POST" action="/inventar/ret">
-                    {{ method_field('PUT') }}
+                    @method('PUT')
                     @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="product-edit-title">Ret produkt</h5>
