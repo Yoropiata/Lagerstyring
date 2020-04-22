@@ -21,13 +21,18 @@ Route::get('login', "AuthController@LoginView");
 
 Route::post('/login','AuthController@login');
 
-
 Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/inventar', 'WebController@InventoryView');
 
     Route::get('/inventar/ret', 'WebController@InventoryEditView');
 
     Route::get('/admin', 'WebController@InventoryEditView');
+    
+    Route::get('/brugere', 'WebController@UsersView');
+    Route::get('/bruger/ret', 'WebController@UsersEditView');
+    Route::post('/bruger/opret','UserController@register');
+    Route::post('/bruger/ret','UserController@edit');
+    Route::get('/bruger/slet','UserController@delete');
 });
 
 Route::get('/logout', 'LogoutController@logout');
