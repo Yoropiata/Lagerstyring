@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('login', "AuthController@LoginView");
-
+Route::get('login', "WebController@LoginView");
 Route::post('/login','AuthController@login');
 
 Route::group(['middleware' => 'auth:web'], function() {
