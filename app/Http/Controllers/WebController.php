@@ -21,8 +21,8 @@ class WebController extends Controller
     } 
     
     public function InventoryEditView(Request $request) {
-        $title = "Inventar rettelses side!";
-        return view('edit-inventory', ["title"=>$title]);
+        $products = Product::all();
+        return view('edit-inventory', ["products"=>$products]);
     }
 
     public function UsersView(Request $request) {

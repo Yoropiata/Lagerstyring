@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/inventar', 'WebController@InventoryView');
 
     Route::get('/inventar/ret', 'WebController@InventoryEditView');
+    Route::post('/inventar/ret', 'ProductController@create');
+    Route::put('/inventar/ret', 'ProductController@update');
+    Route::delete('/inventar/ret/{id}', 'ProductController@delete');
 
     Route::get('/admin', 'WebController@InventoryEditView');
     
