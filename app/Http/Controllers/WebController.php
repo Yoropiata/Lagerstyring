@@ -7,6 +7,13 @@ use App\Product;
 
 class WebController extends Controller
 {
+    public function loginView(Request $request) {
+        if(Auth::check()) {
+            redirect("inventar");
+        } else {
+            return view('login');
+        }
+    }
     public function InventoryView(Request $request) {
         $products = Product::all();
         return view('overview', ["products"=>$products]);
