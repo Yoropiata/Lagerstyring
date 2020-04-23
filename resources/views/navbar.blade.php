@@ -13,7 +13,7 @@
         <a class="nav-link" href="/inventar/ret">Ret Lager</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Admin">Admin</a>
+        <a class="nav-link" href="/brugere">Admin</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/logout') }}">Log ud</a>
