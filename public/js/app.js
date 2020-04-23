@@ -37328,6 +37328,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('#navbar-toggle-button').on('click', function () {
+  $('#navbar-content').toggle();
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37387,8 +37391,8 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Lagerstyring\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Lagerstyring\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\lagerstyring\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\lagerstyring\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
