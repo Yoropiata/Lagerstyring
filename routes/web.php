@@ -13,21 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect('login');
+});
 
 Route::get('login', "WebController@LoginView");
 Route::post('/login','AuthController@login');
 
 Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/inventar', 'WebController@InventoryView');
-
+    
     Route::get('/inventar/ret', 'WebController@InventoryEditView');
     Route::post('/inventar/ret', 'ProductController@create');
     Route::put('/inventar/ret', 'ProductController@update');
     Route::delete('/inventar/ret/{id}', 'ProductController@delete');
-
+    
     Route::get('/admin', 'WebController@InventoryEditView');
     
     Route::get('/brugere', 'WebController@UsersView');
@@ -35,6 +35,6 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::post('/bruger/opret','UserController@register');
     Route::post('/bruger/ret','UserController@edit');
     Route::get('/bruger/slet','UserController@delete');
+    
+    Route::get('/logout', 'LogoutController@logout');
 });
-
-Route::get('/logout', 'LogoutController@logout');
