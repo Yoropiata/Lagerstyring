@@ -17,7 +17,7 @@ class ProductController extends Controller
                 "department_id" => 1,
             ]);
         } catch (\Illuminate\Database\QueryException $exception) {
-            return redirect("inventar/ret")->with('error', 'Produktet eksisterer allerede');;
+            return redirect("inventar/ret")->with('error', 'Produktet eksisterer allerede');
         }
         return redirect("/inventar/ret");
     }
