@@ -28,8 +28,6 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::put('/inventar/ret', 'ProductController@update');
     Route::delete('/inventar/ret/{id}', 'ProductController@delete');
     
-    Route::get('/admin', 'WebController@InventoryEditView');
-    
     Route::get('/brugere', 'WebController@UsersView');
     Route::get('/bruger/ret', 'WebController@UsersEditView');
     Route::post('/bruger/opret','UserController@register');
