@@ -116,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <<form id="delete-form" method="post">
+        <form id="delete-form" method="post">
         @csrf
         @method('DELETE')         
         </form>
