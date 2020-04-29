@@ -45,10 +45,10 @@
                                 </form>
                             </td>
                             <td>
-                                <span onclick="edit(this);" class="text-primary" data-toggle="modal" data-target="#product-edit">
+                                <span onclick="edit(this);" class="text-primary btn p-0" data-toggle="modal" data-target="#product-edit">
                                     <i class="material-icons">&#xE8B8;</i>
                                 </span>
-                                <span onclick="del(this);" class="text-danger">
+                                <span onclick="del(this);" class="text-danger btn p-0">
                                     <i class="material-icons">&#xE5C9;</i>
                                 </span>
                             </td>
@@ -116,7 +116,7 @@
                 </div>
             </div>
         </div>
-        <<form id="delete-form" method="post">
+        <form id="delete-form" method="post">
         @csrf
         @method('DELETE')         
         </form>
@@ -125,7 +125,7 @@
     </body>
     <script>
     function edit(editEl) {
-        var datarow = $(editEl).parent().parent().children();
+        var datarow = $(editEl).parent().siblings();
         var id = $(datarow[0]).html();
         var name = $(datarow[1]).html();
         var amount = $(datarow[2]).html();
