@@ -19,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('login', 'API\UserController@login');
-Route::post('register', 'API\UserController@register');
+Route::post('login', 'API\AuthController@login');
+Route::post('register', 'API\AuthController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::post('details', 'API\UserController@details');
+    Route::post('details', 'API\AuthController@details');
 });
+
+Route::get('products', 'API\ProductController@getall');
+Route::get('users', 'API\UserController@getall');
+Route::get('departments', 'API\DepartmentController@getall');

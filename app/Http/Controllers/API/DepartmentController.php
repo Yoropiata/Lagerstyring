@@ -3,14 +3,14 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request; 
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller; 
-use App\User; 
+use App\Department; 
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 
-class UserController extends Controller 
+class DepartmentController extends Controller 
 {
     public function getall(Request $request) {
-        $users = User::all();
-        return response()->json($users, Response::HTTP_OK);
+        $departments = Department::all();
+        return response()->json($departments, Response::HTTP_OK);
     }
 }
