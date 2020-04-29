@@ -12,7 +12,7 @@ class WebController extends Controller
 {
     public function loginView(Request $request) {
         if(Auth::check()) {
-            redirect("inventar");
+            return redirect("inventar");
         } else {
             return view('login');
         }
