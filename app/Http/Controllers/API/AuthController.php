@@ -54,22 +54,5 @@ class AuthController extends Controller
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
         $user = User::create($input); 
-        $success['token'] =  $user->createToken('lagerToken')->accessToken; 
-        $success['name'] =  $user->name;
-        return response()->json(
-            [
-                'success' => $success
-            ], $this-> successStatus
-        ); 
     }
-    /** 
-     * details api 
-     * 
-     * @return \Illuminate\Http\Response 
-     */ 
-    public function details() 
-    { 
-        $user = Auth::user(); 
-        return response()->json(['success' => $user], $this-> successStatus); 
-    } 
 }

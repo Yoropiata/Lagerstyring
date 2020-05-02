@@ -23,7 +23,7 @@ Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::post('details', 'API\AuthController@details');
+    // TODO: move register, products, users, departments in here.
 });
 
 Route::get('products', 'API\ProductController@getall');
