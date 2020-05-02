@@ -25,7 +25,7 @@ class Product extends Model implements Auditable
      * @var array
      */
     protected $hidden = [
-        "created_at", "updated_at", "department_id"
+        "created_at", "updated_at"
     ];
 
     /**
