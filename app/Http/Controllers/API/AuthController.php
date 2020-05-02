@@ -53,6 +53,7 @@ class AuthController extends Controller
 
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
+        $user = User::create($input);
+        return response()->json($user, $this->successStatus); 
     }
 }
