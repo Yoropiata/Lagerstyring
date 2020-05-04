@@ -16,13 +16,9 @@ class AuthController extends Controller
      */ 
     public function login(){ 
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])) { 
-            $user = Auth::user(); 
-            $success['token'] =  $user->createToken('lagerToken')->accessToken; 
-            return response()->json(
-                [
-                    'success' => $success
-                ], $this->successStatus
-            ); 
+            $user = Auth::user();
+            $user['token'] = $user->createToken('lagerToken')->accessToken; 
+            return response()->json($user, $this->successStatus); 
         } 
         else { 
             return response()->json(
@@ -44,7 +40,8 @@ class AuthController extends Controller
             'name' => 'required', 
             'email' => 'required|email', 
             'password' => 'required', 
-            'c_password' => 'required|same:password', 
+            'c_password' => 'required|same:password',
+            'is_admin' => 'boolean'
         ]);
 
         if ($validator->fails()) { 
@@ -53,23 +50,7 @@ class AuthController extends Controller
 
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
-        $success['token'] =  $user->createToken('lagerToken')->accessToken; 
-        $success['name'] =  $user->name;
-        return response()->json(
-            [
-                'success' => $success
-            ], $this-> successStatus
-        ); 
+        $user = User::create($input);
+        return response()->json($user, $this->successStatus); 
     }
-    /** 
-     * details api 
-     * 
-     * @return \Illuminate\Http\Response 
-     */ 
-    public function details() 
-    { 
-        $user = Auth::user(); 
-        return response()->json(['success' => $user], $this-> successStatus); 
-    } 
 }
